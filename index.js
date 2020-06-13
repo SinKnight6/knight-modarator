@@ -6,6 +6,11 @@ const PREFIX = '$';
 
 const bot = new Discord.Client();
 
+bot.on('ready', () => {
+  console.log(`${bot.user.tag} has logged in.`);
+});
+
+
 const isValidCommand = (message, cmdName) => message.content.toLowerCase().startsWith(PREFIX + cmdName)
 const rollDice = () => Math.floor(Math.random() * 6) + 1;
 const checkPermissionRole = (role) => role.permissions.has('ADMINISTRATOR') || role.permissions.has('KICK_MEMBERS') || 
