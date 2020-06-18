@@ -228,6 +228,10 @@ bot.on('message', async function(message) {
 
 // Break 
 
+bot.on("message", async message => {
+    let args = message.content.substring(PREFIX.length).split(" ");
+    if (message.author.bot) return;
+
 if (message.content.startsWith('WEATHER') || (message.content.startsWith('weather'))){
   weather.find({search: args.join(" "), degreeType: 'F'}, function(err, result){
     if (err) message.channel.send(err);
@@ -252,5 +256,6 @@ if (message.content.startsWith('WEATHER') || (message.content.startsWith('weathe
 
   });
 }
+})
 
 bot.login(token);
