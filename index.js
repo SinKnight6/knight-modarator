@@ -226,21 +226,13 @@ bot.on('message', async function(message) {
 
 });
 
-//break
-
-bot.on("message", async message => {
-  let args = message.content.substring(PREFIX.length).split(" ");
-  if (message.author.bot) return;
-
-
-
-// Break
+// Break 
 
 if (message.content.startsWith('WEATHER') || (message.content.startsWith('weather'))){
   weather.find({search: args.join(" "), degreeType: 'F'}, function(err, result){
-    if (err) message.author.send(err);
+    if (err) message.channel.send(err);
     if (result.length === 0){
-      message.author.send('**Please enter a valid location.**')
+      message.channel.send('**Please enter a valid location.**')
       return;
     }
     var current = result[0].current;
@@ -256,10 +248,9 @@ if (message.content.startsWith('WEATHER') || (message.content.startsWith('weathe
       .addField(`Feels Like`, `${current.feelslike} Degree`,true)
       .addField(`Winds`,current.winddisplay, true)
       .addField(`Humidity`, `${current.humidity}%`, true)
-      message.author.send({embed: uEmbed});
+      message.channel.send({embed: uEmbed});
 
   });
 }
-})
 
 bot.login(token);
