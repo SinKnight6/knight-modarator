@@ -11,36 +11,6 @@ bot.on('ready', () => {
 });
 
 
-bot.on("message", async message => {
-  let args = message.content.substring(PREFIX.length).split(" ");
-  if (message.author.bot) return;
-
-if (message.content.startsWith('WEATHER') || (message.content.startsWith('weather'))){
-weather.find({search: args.join(" "), degreeType: 'F'}, function(err, result){
-  if (err) message.channel.send(err);
-  if (result.length === 0){
-    message.channel.send('**Please enter a valid location.**')
-    return;
-  }
-  var current = result[0].current;
-  var location = result[0].location;
-  const uEmbed = new Discord.MessageEmbed()
-    .setDescription(`**${current.skytext}**`)
-    .setAuthor(`Weather for ${current.observationpoint}`)
-    .setThumbnail(current.imageUrl)
-    .setColor(0x00AE86)
-    .addField(`Timezone`,`UTC${location.timezone}`, true)
-    .addField(`Degree Type`,location.degreetype, true)
-    .addField(`Temperature`,`${current.temperature} Degrees`, true)
-    .addField(`Feels Like`, `${current.feelslike} Degree`,true)
-    .addField(`Winds`,current.winddisplay, true)
-    .addField(`Humidity`, `${current.humidity}%`, true)
-    message.channel.send({embed: uEmbed});
-
-});
-}
-})
-
 // Break
 
 const isValidCommand = (message, cmdName) => message.content.toLowerCase().startsWith(PREFIX + cmdName)
