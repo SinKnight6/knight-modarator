@@ -227,19 +227,6 @@ bot.on('message', async function(message) {
       }
     }
   }
-  else if (isValidCommand(message, "announce")) {
-    message.delete()
-    let announcement = message.content.substring(10);
-    let announcementsChannel = bot.channels.cache.get('789337633591263277');
-    let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
-    let embed = new Discord.MessageEmbed();
-    if(announcementsChannel)
-    embed.addField('**Announcement**', announcement);
-    embed.setColor(000000);
-    embed.setFooter('Announced by Staff')
-    announcementsChannel.send(embed);
-    
-  }
 
 });
 
