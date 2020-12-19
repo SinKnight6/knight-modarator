@@ -113,7 +113,6 @@ bot.on('message', async function(message) {
     message.delete()
     let announcement = message.content.substring(5);
     let announcementsChannel = bot.channels.cache.get('689368138038771730');
-    let announcementsChannel = bot.channels.cache.get('789337633591263277');
     let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
     let embed = new Discord.MessageEmbed();
     if(announcementsChannel)
@@ -186,7 +185,6 @@ bot.on('message', async function(message) {
         }
         else {
           let mutedRole = message.guild.roles.cache.get('688858722134655103');
-          let mutedRole = message.guild.roles.cache.get('789337632899334191');
           if (mutedRole) {
             member.roles.add(mutedRole);
             message.channel.send("User was muted.");
@@ -228,6 +226,19 @@ bot.on('message', async function(message) {
         message.channel.send("Member not found.");
       }
     }
+  }
+  else if (isValidCommand(message, "announce")) {
+    message.delete()
+    let announcement = message.content.substring(10);
+    let announcementsChannel = bot.channels.cache.get('789337633591263277');
+    let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
+    let embed = new Discord.MessageEmbed();
+    if(announcementsChannel)
+    embed.addField('**Announcement**', announcement);
+    embed.setColor(000000);
+    embed.setFooter('Announced by Staff')
+    announcementsChannel.send(embed);
+    
   }
 
 });
