@@ -4,7 +4,7 @@ const token = process.env.token;
 
 const weather = require('weather-js');
 
-const PREFIX = '!';
+const PREFIX = '$';
 
 const bot = new Discord.Client();
 
@@ -227,7 +227,7 @@ bot.on('message', async function(message) {
         message.channel.send("Member not found.");
       }
     } 
-  } else if (message.content.toLowerCase() === "$say") {
+  } else if (message.content.toLowerCase() === "!say") {
       message.delete()
       let announcement = message.content.substring(5);
       let announcementsChannel = bot.channels.cache.get('794109492794884106');
