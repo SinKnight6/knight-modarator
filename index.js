@@ -230,9 +230,9 @@ bot.on('message', async function(message) {
   } else if (message.content.toLowerCase() === "!say") {
       message.delete()
       let announcement = message.content.substring(5);
-      let announcementsChannel = bot.channels.cache.get('794109492794884106');
+      let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『📢』annoucement');
       let embed = new Discord.MessageEmbed();
-      if(announcementsChannel)
+      if(genralChannel)
       embed.addField('**Announcement**', announcement);
       embed.setColor(000000);
       embed.setFooter('Announced by Staff')
