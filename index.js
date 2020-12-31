@@ -22,7 +22,6 @@ role.permissions.has('BAN_MEMBERS') ||role.permissions.has('MANAGE_GUILD') ||rol
 
 bot.on('message', async function(message) {
   if(message.author.bot) return;
-  
 
   if(isValidCommand(message, 'hello'))
     message.reply('Hello!');
@@ -114,7 +113,7 @@ bot.on('message', async function(message) {
     message.delete()
     let announcement = message.content.substring(5);
     let announcementsChannel = bot.channels.cache.get('689368138038771730');
-    let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『📢』annoucement');
+    let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
     let embed = new Discord.MessageEmbed();
     if(announcementsChannel)
     embed.addField('**Announcement**', announcement);
@@ -226,12 +225,10 @@ bot.on('message', async function(message) {
       else {
         message.channel.send("Member not found.");
       }
-    } 
+    }
   }
 
 });
-
-// Break 
 
 // Break 
 
