@@ -227,16 +227,6 @@ bot.on('message', async function(message) {
         message.channel.send("Member not found.");
       }
     } 
-  } else if (message.content.toLowerCase() === "!say") {
-      message.delete()
-      let announcement = message.content.substring(5);
-      let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『📢』annoucement');
-      let embed = new Discord.MessageEmbed();
-      if(genralChannel)
-      embed.addField('**Announcement**', announcement);
-      embed.setColor(000000);
-      embed.setFooter('Announced by Staff')
-      announcementsChannel.send(embed);
   }
 
 });
