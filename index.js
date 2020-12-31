@@ -226,62 +226,7 @@ bot.on('message', async function(message) {
       else {
         message.channel.send("Member not found.");
       }
-    }
-  } else if (message.content.toLowerCase() === '$mute' ) {
-    message.delete()
-    if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])){
-      message.channel.send("You don't have permission to use this command.");
-    }
-    else {
-      let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      let member = message.guild.members.cache.get(memberId);
-      if (member) {
-        if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
-          message.channel.send("You cannot mute that person!");
-        }
-        else {
-          let mutedRole = message.guild.roles.cache.get('794115637764030484');
-          if (mutedRole) {
-            member.roles.add(mutedRole);
-            message.channel.send("User was muted.");
-          }
-          else {
-            message.channel.send("Muted role not found.");
-          }
-        }
-      }
-      else {
-        message.channel.send("Member not found.");
-      }
-    }
-  }
-  else if (message.content.toLowerCase() === '$unmute') {
-    message.delete()
-    if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])){
-      message.channel.send("You don't have permission to use this command.");
-    }
-    else {
-      let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      let member = message.guild.members.cache.get(memberId);
-      if (member) {
-        if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
-          message.channel.send("You cannot mute that person!");
-        }
-        else {
-          let mutedRole = message.guild.roles.cache.get('794115637764030484');
-          if (mutedRole) {
-            member.roles.remove(mutedRole);
-            message.channel.send("User was unmuted.");
-          }
-          else {
-            message.channel.send("Muted role not found.");
-          }
-        }
-      }
-      else {
-        message.channel.send("Member not found.");
-      }
-    }
+    } 
   } else if (message.content.toLowerCase() === "$say") {
       message.delete()
       let announcement = message.content.substring(5);
@@ -292,53 +237,6 @@ bot.on('message', async function(message) {
       embed.setColor(000000);
       embed.setFooter('Announced by Staff')
       announcementsChannel.send(embed);
-  } else if (message.content.toLowerCase() === '$ban') {
-    message.delete()
-    if (!message.member.hasPermission('BAN_MEMBERS')) {
-      message.channel.send("You don't have permission to use this command.");
-      
-    }
-    else {
-       let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      // let member = message.guild.members.cache.get(memberId);
-      // if(member) {
-      //   member.ban();
-      // }
-      // else {
-      //   message.channel.send("Member does not exist.");
-      // }
-      try {
-        let bannedMember = await message.guild.members.ban(memberId);
-        if(bannedMember) {
-          console.log(bannedMember.tag + " Was banned. "); 
-        }
-        else {
-          console.log("Banned did not happen.");
-        }
-      }
-      catch(err) {
-        console.log(err);
-      }
-    }
-  } else if (message.content.toLowerCase() === '$kick') {
-    message.delete()
-    if(!message.member.hasPermission('KICK_MEMBERS')) {
-      message.channel.send("You don't have permission to use this command.");
-    }
-    else {
-      let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      let member = message.guild.members.cache.get(memberId);
-      if (member) {
-        try {
-          await member.kick();
-          console.log(' A member was kicked. ')
-        }
-        catch(err) {
-          console.log(err);
-        }
-      }
-      
-    }
   }
 
 });
