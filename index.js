@@ -260,7 +260,74 @@ if (message.content.startsWith('WEATHER') || (message.content.startsWith('weathe
 
   });
 }
-})
+
+else if (message.content.toLowerCase() === '0252505504' && message.channel.id === '859655331901866005'){
+  let embed = new Discord.MessageEmbed()
+    .setColor(000000)
+    .setDescription(` **__Welcome to Sinner Squad HQ__**
+
+    Hello! You are required to complete this Step before entering the server
+
+    **Why?** 
+    This is to protect the server against targeted attacks using automated user accounts.
+
+    Just simply type in your unique code that was provided to you by one of our caln leaders. 
+
+    
+
+    \`Example: 000-00-000\``)
+    message.channel.send({embed: embed});
+   };
+  
+  bot.on('guildMemberAdd', member => {
+    console.log(member.user.tag);
+  });
+
+  if (message.channel.id === '859655331901866005')
+    await message.delete();
+  if (message.content.toLowerCase() === '890-322-134' && message.channel.id === '859655331901866005')
+  {
+    message.channel.send(`${message.author} Please stand by <a:Loading:955907726825910284>
+Attempting to verify you in **Sinner Squad HQ** Server`)
+  .then(sentMessage => sentMessage.delete({ timeout: 10000})
+ .catch(error => {
+  // Hnadler
+}))
+.then(() => {
+  message.channel.awaitMessages(response => response.content === '', {
+    max: 1,
+    time: 100,
+    errors: ['time'],
+  })
+  .then((collected) => {
+      message.channel.send(`The collected message was: ${collected.first().content}`);
+    })
+    .catch(() => {
+      let uEmbed6 = new Discord.MessageEmbed()
+    .setTitle('**Verified**')
+    .setColor(3066993)
+    .setDescription(`${message.author} You are now Verified <a:verified:956232129254146118>, Welcome to our server`)
+    message.channel.send({embed: uEmbed6})
+      .then(sentMessage => sentMessage.delete({ timeout: 6000})
+ .catch(error => {
+    }));
+  });
+});
+    await message.delete().catch(err => console.log(err));
+    const role = message.guild.roles.cache.get('859656285728276524');
+    if(role) {
+      try {
+      setTimeout( async () => {
+      await message.member.roles.add(role); }, 12000)
+      console.log('Role added!');
+    }
+    catch(err) {
+      console.log(err);
+      }
+    }
+
+}
+});
 
 // Break 
 
