@@ -327,6 +327,16 @@ Attempting to verify you in **Sinner Squad HQ** Server`)
     }
 
 }
+
+else if (message.content.toLowerCase() === '$clear' || message.content.toLowerCase() === '$purge') {
+  message.delete()
+  if(message.member.hasPermission('MANAGE_MESSAGES')) {
+  message.channel.bulkDelete(100)
+} else {
+  message.reply("You don't have permission to use this command.");
+}
+}
+  
 });
 
 // Break 
