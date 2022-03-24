@@ -215,7 +215,7 @@ bot.on('message', async function(message) {
           let mutedRole = message.guild.roles.cache.get('956241047753744414');
           if (mutedRole) {
             member.roles.remove(mutedRole);
-            message.channel.send("User was unmuted.");
+            message.channel.send(`${message.author.tag} was unmuted.`);
           }
           else {
             message.channel.send("Muted role not found.");
