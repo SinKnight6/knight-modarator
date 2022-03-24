@@ -178,7 +178,7 @@ bot.on('message', async function(message) {
     }
     else {
       let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      let member = message.guild.members.cache.get(memberId);
+      let member = message.guild.members.fetch(memberId);
       if (member) {
         if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
           message.channel.send("You cannot mute that person!");
@@ -206,7 +206,7 @@ bot.on('message', async function(message) {
     }
     else {
       let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      let member = message.guild.members.cache.get(memberId);
+      let member = message.guild.members.fetch(memberId);
       if (member) {
         if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
           message.channel.send("You cannot mute that person!");
