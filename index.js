@@ -16,7 +16,7 @@ bot.on('ready', () => {
 // Break
 const channelId = '956692198030717019'
 
-const updateMembers = guild => {
+const updateMembers = (guild) => {
   const channel = guild.channels.cache.get(channelId)
   channel.setName(`Members : ${guild.memberCount.toLocaleString()}`)
   // 500 -> 500
