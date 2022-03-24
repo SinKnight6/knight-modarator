@@ -178,7 +178,7 @@ bot.on('message', async function(message) {
     }
     else {
       let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      let member = message.guild.members.fetch(memberId);
+      let member = message.guild.members.cache.get(memberId);
       if (member) {
         if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
           message.channel.send("You cannot mute that person!");
@@ -206,7 +206,7 @@ bot.on('message', async function(message) {
     }
     else {
       let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      let member = message.guild.members.fetch(memberId);
+      let member = message.guild.members.cache.get(memberId);
       if (member) {
         if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
           message.channel.send("You cannot mute that person!");
@@ -215,7 +215,7 @@ bot.on('message', async function(message) {
           let mutedRole = message.guild.roles.cache.get('956241047753744414');
           if (mutedRole) {
             member.roles.remove(mutedRole);
-            message.channel.send(`${message.author.tag} was unmuted.`);
+            message.channel.send("User was unmuted.");
           }
           else {
             message.channel.send("Muted role not found.");
