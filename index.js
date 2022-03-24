@@ -140,7 +140,8 @@ bot.on('message', async function(message) {
       try {
         let bannedMember = await message.guild.members.ban(memberId);
         if(bannedMember) {
-          console.log(bannedMember.tag + " Was banned. "); 
+          console.log(bannedMember.tag + " Was banned. ");
+          message.channel.send('A user was banned from this server ❌')
         }
         else {
           console.log("Banned did not happen.");
@@ -163,6 +164,7 @@ bot.on('message', async function(message) {
         try {
           await member.kick();
           console.log(' A member was kicked. ')
+          message.channel.send( memberId.tag +'A User was Kicked 🚪👈')
         }
         catch(err) {
           console.log(err);
@@ -187,7 +189,7 @@ bot.on('message', async function(message) {
           let mutedRole = message.guild.roles.cache.get('956241047753744414');
           if (mutedRole) {
             member.roles.add(mutedRole);
-            message.channel.send("User was muted.");
+            message.channel.send(memberId.tag + "User was muted🔇");
           }
           else {
             message.channel.send("Muted role not found.");
@@ -215,7 +217,7 @@ bot.on('message', async function(message) {
           let mutedRole = message.guild.roles.cache.get('956241047753744414');
           if (mutedRole) {
             member.roles.remove(mutedRole);
-            message.channel.send("User was unmuted.");
+            message.channel.send("User was unmuted🔈");
           }
           else {
             message.channel.send("Muted role not found.");
