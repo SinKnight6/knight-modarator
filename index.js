@@ -184,7 +184,7 @@ bot.on('message', async function(message) {
           message.channel.send("You cannot mute that person!");
         }
         else {
-          let mutedRole = message.guild.roles.cache.get('688858722134655103');
+          let mutedRole = message.guild.roles.cache.get('956241047753744414');
           if (mutedRole) {
             member.roles.add(mutedRole);
             message.channel.send("User was muted.");
@@ -212,7 +212,7 @@ bot.on('message', async function(message) {
           message.channel.send("You cannot mute that person!");
         }
         else {
-          let mutedRole = message.guild.roles.cache.get('688858722134655103');
+          let mutedRole = message.guild.roles.cache.get('956241047753744414');
           if (mutedRole) {
             member.roles.remove(mutedRole);
             message.channel.send("User was unmuted.");
