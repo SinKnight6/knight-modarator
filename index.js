@@ -14,6 +14,21 @@ bot.on('ready', () => {
 
 
 // Break
+const channelId = '956692198030717019'
+
+const updateMembers = guild => {
+  const channel = guild.channels.cache.get(channelId)
+  channel.setName(`Members : ${guild.memberCount.toLocaleString()}`)
+  // 500 -> 500
+  // 1300 -> 1,300
+}
+bot.on('guildMemberAdd', member => updateMembers(member.guild))
+bot.on('guildMemberRemove', member => updateMembers(member.guild))
+
+const guild = cleint.guild.cache.get('859615561734553620')
+updateMembers(guild)
+
+// Break
 
 const isValidCommand = (message, cmdName) => message.content.toLowerCase().startsWith(PREFIX + cmdName)
 const rollDice = () => Math.floor(Math.random() * 6) + 1;
@@ -164,7 +179,7 @@ bot.on('message', async function(message) {
         try {
           await member.kick();
           console.log(' A member was kicked. ')
-          message.channel.send( memberId.tag +'A User was Kicked 🚪👈')
+          message.channel.send( member.tag +'A User was Kicked 🚪👈')
         }
         catch(err) {
           console.log(err);
@@ -189,7 +204,7 @@ bot.on('message', async function(message) {
           let mutedRole = message.guild.roles.cache.get('956241047753744414');
           if (mutedRole) {
             member.roles.add(mutedRole);
-            message.channel.send(memberId.tag + "User was muted🔇");
+            message.channel.send(member.tag + "User was muted🔇");
           }
           else {
             message.channel.send("Muted role not found.");
