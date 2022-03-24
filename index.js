@@ -25,7 +25,7 @@ const updateMembers = guild => {
 bot.on('guildMemberAdd', member => updateMembers(member.guild))
 bot.on('guildMemberRemove', member => updateMembers(member.guild))
 
-const guild = bot.guild.cache.get('859615561734553620')
+const guild = bot.guilds.cache.get('859615561734553620')
 updateMembers(guild)
 
 // Break
