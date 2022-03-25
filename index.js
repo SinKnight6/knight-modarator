@@ -8,7 +8,8 @@ const PREFIX = '$';
 
 const bot = new Discord.Client();
 
-
+const Nuggies = require ("nuggies");
+require('discord-buttons')(bot);
 
 
 bot.on('ready', () => {
@@ -32,8 +33,6 @@ bot.on('guildMemberRemove', (member) => {
   bot.channels.cache.get('956692198030717019').setName(`Total User's: ${member.guild.memberCount}`)
 }) 
 // Break
-
-
 
 // Break
 
@@ -286,6 +285,32 @@ else if (isValidCommand(message, "rules")) {
 });
 
 // Break 
+
+
+bot.on('clickMenu', menu, async message => {
+  if (message.content.startsWith('Roles')){
+  Nuggies.dropclick(bot, menu);
+  const roles = new Nuggies.dropdownroles().addrole({
+    label: 'Elden Ring',
+    role: '956935664040022037',
+    emoji: '🗡'
+  });
+
+  Nuggies.dropdownroles.create({
+    message: message,
+    role: roles,
+    content: new Discord.MessageEmbed()
+      .setTitle('Click to get role')
+      .setDescription('test run 1'),
+    channelID: message.channel.id,
+  });
+}
+  
+})
+
+
+
+// Break
 
 bot.on("message", async message => {
   let args = message.content.substring(PREFIX.length).split(" ");
