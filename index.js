@@ -14,7 +14,7 @@ bot.on('ready', () => {
 
   let guild = bot.guilds.cache.get('859615561734553620')
 
-  bot.channels.cache.get('956692198030717019').setName(`Total User's - ${guild.memberCount}`)
+  bot.channels.cache.get('956692198030717019').setName(`Total User's: ${guild.memberCount}`)
 
   // Break
 });
@@ -126,7 +126,7 @@ bot.on('message', async function(message) {
   }
   else if (isValidCommand(message, "say")) {
     message.delete()
-    if (!message.member.hasPermission('ADMINISTRATOR')){
+    member.roles.cache.has('862590411100782642');
     let announcement = message.content.substring(5);
     let announcementsChannel = bot.channels.cache.get('955907889518743594');
     let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
@@ -137,7 +137,7 @@ bot.on('message', async function(message) {
     embed.setFooter('Announced by Staff')
     announcementsChannel.send(embed);
     
-  }
+  
 }
   else if (isValidCommand(message, 'ban')) {
     message.delete()
@@ -248,24 +248,6 @@ bot.on('message', async function(message) {
   }
 
 // Break
-
-else if (isValidCommand(message, "Rules")) {
-  message.delete()
-  if(!message.member.hasPermission('ADMINISTRATOR')){
-    message.channel.send("You don't have permission to use this command.");
-  }
-  else {
-  let announcement = message.content.substring(5);
-  let announcementsChannel = bot.channels.cache.get('859657138523602954');
-  let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
-  let embed = new Discord.MessageEmbed();
-  if(announcementsChannel)
-  embed.addField('**Announcement**', announcement);
-  embed.setColor(000000);
-  embed.setFooter('Official Rules')
-  announcementsChannel.send(embed);
-  }
-}
 
 
 // Break
@@ -384,30 +366,6 @@ else if (message.content.toLowerCase() === '$clear' || message.content.toLowerCa
 }
 
 // Break
-
-else if (isValidCommand(message, "embed")) {
-  let embedContent = message.content.substring(7);
-  // let embed = new Discord.MessageEmbed();
-  // embed.setDescription(embedContent);
-  // embed.setColor(colors.black);
-  // embed.setTitle('New Embed Message Created');
-  // embed.setTimestamp()
-  // message.channel.send(embed);
-  
-  let embed = {
-    image: {
-      url: message.author.displayAvatarURL()
-    },
-    description: embedContent,
-    thumbnail: {
-      url: message.author.displayAvatarURL()
-    },
-    timestamp: new Date()
-  }
-  message.channel.send({ embed: embed });
-
-
-}
 
 // Break
 
