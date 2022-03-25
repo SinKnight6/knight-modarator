@@ -261,7 +261,7 @@ else if (isValidCommand(message, "rules")) {
   let embed = new Discord.MessageEmbed();
   if(announcementsChannel)
   embed.setTitle('<a:AlphabetR:956764805107159041><a:AlphabetU:956764826154192896><a:AlphabetL:956764847398354944><a:AlphabetS:956764862455889992>')
-  embed.addField(announcement, '- Sinner Squad');
+  embed.setDescription(announcement, '- Sinner Squad');
   embed.setColor(000000);
   embed.setFooter('OFFICIAL RULES')
   announcementsChannel.send(embed);
