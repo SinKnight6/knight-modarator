@@ -345,6 +345,8 @@ Attempting to verify you in **Sinner Squad HQ** Server`)
 
 }
 
+// Break
+
 else if (message.content.toLowerCase() === '$clear' || message.content.toLowerCase() === '$purge') {
   message.delete()
   if(message.member.hasPermission('MANAGE_MESSAGES')) {
@@ -352,7 +354,53 @@ else if (message.content.toLowerCase() === '$clear' || message.content.toLowerCa
 } else {
   message.reply("You don't have permission to use this command.");
 }
+
 }
+
+// Break
+
+else if (isValidCommand(message, "embed")) {
+  let embedContent = message.content.substring(7);
+  // let embed = new Discord.MessageEmbed();
+  // embed.setDescription(embedContent);
+  // embed.setColor(colors.black);
+  // embed.setTitle('New Embed Message Created');
+  // embed.setTimestamp()
+  // message.channel.send(embed);
+  
+  let embed = {
+    image: {
+      url: message.author.displayAvatarURL()
+    },
+    description: embedContent,
+    thumbnail: {
+      url: message.author.displayAvatarURL()
+    },
+    timestamp: new Date()
+  }
+  message.channel.send({ embed: embed });
+
+}
+else if (isValidCommand(message, "Rules")) {
+  if(!message.member.hasPermission('ADMINISTRATOR'))
+  message.channel.send("");
+  message.delete()
+  let announcement = message.content.substring(5);
+  let announcementsChannel = bot.channels.cache.get('859657138523602954');
+  let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
+  let embed = new Discord.MessageEmbed();
+  if(announcementsChannel)
+  embed.addField('**Announcement**', announcement);
+  embed.setColor(000000);
+  embed.setFooter('Official Rules')
+  announcementsChannel.send(embed);
+  
+}
+
+// Break
+
+
+// Break
   
 });
 
