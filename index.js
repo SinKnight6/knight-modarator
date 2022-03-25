@@ -126,6 +126,7 @@ bot.on('message', async function(message) {
   }
   else if (isValidCommand(message, "say")) {
     message.delete()
+    if (!message.member.hasPermission('ADMINISTRATOR')){
     let announcement = message.content.substring(5);
     let announcementsChannel = bot.channels.cache.get('955907889518743594');
     let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
@@ -137,6 +138,7 @@ bot.on('message', async function(message) {
     announcementsChannel.send(embed);
     
   }
+}
   else if (isValidCommand(message, 'ban')) {
     message.delete()
     if (!message.member.hasPermission('BAN_MEMBERS')) {
