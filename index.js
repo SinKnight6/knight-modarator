@@ -22,11 +22,11 @@ bot.on('ready', () => {
 
 // Break
 bot.on('guildMemberAdd', (member) => {
-  bot.channels.cache.get('956692198030717019').setName(`Total User's - ${member.guild.memberCount}`)
+  bot.channels.cache.get('956692198030717019').setName(`Total User's: ${member.guild.memberCount}`)
 }) 
 
 bot.on('guildMemberRemove', (member) => {
-  bot.channels.cache.get('956692198030717019').setName(`Total User's - ${member.guild.memberCount}`)
+  bot.channels.cache.get('956692198030717019').setName(`Total User's: ${member.guild.memberCount}`)
 }) 
 // Break
 
@@ -382,9 +382,11 @@ else if (isValidCommand(message, "embed")) {
 
 }
 else if (isValidCommand(message, "Rules")) {
-  if(!message.member.hasPermission('ADMINISTRATOR'))
-  message.channel.send("");
   message.delete()
+  if(!message.member.hasPermission('ADMINISTRATOR')){
+    message.channel.send("You don't have permission to use this command.");
+  }
+  else {
   let announcement = message.content.substring(5);
   let announcementsChannel = bot.channels.cache.get('859657138523602954');
   let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
@@ -394,7 +396,7 @@ else if (isValidCommand(message, "Rules")) {
   embed.setColor(000000);
   embed.setFooter('Official Rules')
   announcementsChannel.send(embed);
-  
+  }
 }
 
 // Break
