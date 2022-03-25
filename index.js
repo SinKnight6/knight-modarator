@@ -8,6 +8,9 @@ const PREFIX = '$';
 
 const bot = new Discord.Client();
 
+
+
+
 bot.on('ready', () => {
   console.log(`${bot.user.tag} has logged in.`);
 // Break 
@@ -28,6 +31,10 @@ bot.on('guildMemberAdd', (member) => {
 bot.on('guildMemberRemove', (member) => {
   bot.channels.cache.get('956692198030717019').setName(`Total User's: ${member.guild.memberCount}`)
 }) 
+// Break
+
+
+
 // Break
 
 const isValidCommand = (message, cmdName) => message.content.toLowerCase().startsWith(PREFIX + cmdName)
