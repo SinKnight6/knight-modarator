@@ -245,6 +245,30 @@ bot.on('message', async function(message) {
     }
   }
 
+// Break
+
+else if (isValidCommand(message, "Rules")) {
+  message.delete()
+  if(!message.member.hasPermission('ADMINISTRATOR')){
+    message.channel.send("You don't have permission to use this command.");
+  }
+  else {
+  let announcement = message.content.substring(5);
+  let announcementsChannel = bot.channels.cache.get('859657138523602954');
+  let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
+  let embed = new Discord.MessageEmbed();
+  if(announcementsChannel)
+  embed.addField('**Announcement**', announcement);
+  embed.setColor(000000);
+  embed.setFooter('Official Rules')
+  announcementsChannel.send(embed);
+  }
+}
+
+
+// Break
+  
+
 });
 
 // Break 
@@ -380,23 +404,7 @@ else if (isValidCommand(message, "embed")) {
   }
   message.channel.send({ embed: embed });
 
-}
-else if (isValidCommand(message, "Rules")) {
-  message.delete()
-  if(!message.member.hasPermission('ADMINISTRATOR')){
-    message.channel.send("You don't have permission to use this command.");
-  }
-  else {
-  let announcement = message.content.substring(5);
-  let announcementsChannel = bot.channels.cache.get('859657138523602954');
-  let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
-  let embed = new Discord.MessageEmbed();
-  if(announcementsChannel)
-  embed.addField('**Announcement**', announcement);
-  embed.setColor(000000);
-  embed.setFooter('Official Rules')
-  announcementsChannel.send(embed);
-  }
+
 }
 
 // Break
