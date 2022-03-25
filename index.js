@@ -260,7 +260,7 @@ else if (isValidCommand(message, "rules")) {
   let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
   let embed = new Discord.MessageEmbed();
   if(announcementsChannel)
-  embed.setTitle('<a:AlphabetR:956764805107159041> <a:AlphabetU:956764826154192896> <a:AlphabetL:956764847398354944> <a:AlphabetS:956764862455889992>')
+  embed.setTitle('<a:AlphabetR:956764805107159041> <a:AlphabetU:956764826154192896> <a:AlphabetL:956764847398354944><a:AlphabetE:956780552134991902> <a:AlphabetS:956764862455889992>')
   embed.setDescription(announcement);
   embed.addField('Thank You!', '- Sinner Squad Family')
   embed.setColor(000000);
