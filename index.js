@@ -252,6 +252,24 @@ bot.on('message', async function(message) {
 
 // Break
 
+else if (isValidCommand(message, "rules")) {
+  message.delete()
+  if(message.member.hasPermission('ADMINISTRATOR')) {
+    let announcement = message.content.substring(5);
+  let announcementsChannel = bot.channels.cache.get('859657138523602954');
+  let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
+  let embed = new Discord.MessageEmbed();
+  if(announcementsChannel)
+  embed.addField('<a:AlphabetR:956764805107159041><a:AlphabetU:956764826154192896><a:AlphabetL:956764847398354944><a:AlphabetS:956764862455889992>', announcement);
+  embed.setColor(000000);
+  embed.setFooter('OFFICIAL RULES')
+  announcementsChannel.send(embed);
+  } else {
+    message.reply("You don't have permission to use this command.");
+  }
+  
+
+}
 
 // Break
   
