@@ -126,7 +126,7 @@ bot.on('message', async function(message) {
   }
   else if (isValidCommand(message, "say")) {
     message.delete()
-    !message.member.roles.cache.has('956648151849238638');
+    message.member.roles.cache.has('956648151849238638');
     let announcement = message.content.substring(5);
     let announcementsChannel = bot.channels.cache.get('955907889518743594');
     let genralChannel = bot.channels.cache.find(channel => channel.name.toLowerCase() === '『💬』general');
