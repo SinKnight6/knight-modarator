@@ -15,8 +15,6 @@ bot.on('ready', () => {
   let guild = bot.guilds.cache.get('859615561734553620')
 
   bot.channels.cache.get('956692198030717019').setName(`Total User's - ${guild.memberCount}`)
-  bot.channels.cache.get('956703424651620382').setName(`Member's - ${guild.members.cache.filter(member => !member.user.bot).size}`)
-  bot.channels.cache.get('956703497254998016').setName(` Bot's - ${guild.members.cache.filter(member => member.user.bot).size}`)
 
   // Break
 });
@@ -25,14 +23,10 @@ bot.on('ready', () => {
 // Break
 bot.on('guildMemberAdd', (member) => {
   bot.channels.cache.get('956692198030717019').setName(`Total User's - ${member.guild.memberCount}`)
-  bot.channels.cache.get('956703424651620382').setName(`Member's - ${member.guild.members.cache.filter(member => !member.user.bot).size}`)
-  bot.channels.cache.get('956703497254998016').setName(` Bot's - ${member.guild.members.cache.filter(member => member.user.bot).size}`)
 }) 
 
 bot.on('guildMemberRemove', (member) => {
   bot.channels.cache.get('956692198030717019').setName(`Total User's - ${member.guild.memberCount}`)
-  bot.channels.cache.get('956703424651620382').setName(`Member's - ${member.guild.members.cache.filter(member => !member.user.bot).size}`)
-  bot.channels.cache.get('956703497254998016').setName(` Bot's - ${member.guild.members.cache.filter(member => member.user.bot).size}`)
 }) 
 // Break
 
