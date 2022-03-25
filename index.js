@@ -10,24 +10,30 @@ const bot = new Discord.Client();
 
 bot.on('ready', () => {
   console.log(`${bot.user.tag} has logged in.`);
+// Break 
+
+  let guild = bot.guilds.cache.get('859615561734553620')
+
+  bot.channels.cache.get('956692198030717019').setName(`Total User's - ${guild.memberCount}`)
+  bot.channels.cache.get('956703424651620382').setName(`Member's - ${guild.members.cache.filter(member => !member.user.bot).size}`)
+  bot.channels.cache.get('956703497254998016').setName(` Bot's - ${guild.members.cache.filter(member => member.user.bot).size}`)
+
+  // Break
 });
 
 
 // Break
-const channelId = '956692198030717019'
+bot.on('guildMemberAdd', (member) => {
+  bot.channels.cache.get('956692198030717019').setName(`Total User's - ${member.guild.memberCount}`)
+  bot.channels.cache.get('956703424651620382').setName(`Member's - ${member.guild.members.cache.filter(member => !member.user.bot).size}`)
+  bot.channels.cache.get('956703497254998016').setName(` Bot's - ${member.guild.members.cache.filter(member => member.user.bot).size}`)
+}) 
 
-const updateMembers = (guild) => {
-  const channel = guild.channel.cache.get(channelId)
-  channel.setName(`Members : ${guild.memberCount.toLocaleString()}`)
-  // 500 -> 500
-  // 1300 -> 1,300
-}
-bot.on('guildMemberAdd', member => updateMembers(member.guild))
-bot.on('guildMemberRemove', member => updateMembers(member.guild))
-
-const guild = bot.guilds.cache.get('859615561734553620')
-updateMembers(guild)
-
+bot.on('guildMemberRemove', (member) => {
+  bot.channels.cache.get('956692198030717019').setName(`Total User's - ${member.guild.memberCount}`)
+  bot.channels.cache.get('956703424651620382').setName(`Member's - ${member.guild.members.cache.filter(member => !member.user.bot).size}`)
+  bot.channels.cache.get('956703497254998016').setName(` Bot's - ${member.guild.members.cache.filter(member => member.user.bot).size}`)
+}) 
 // Break
 
 const isValidCommand = (message, cmdName) => message.content.toLowerCase().startsWith(PREFIX + cmdName)
