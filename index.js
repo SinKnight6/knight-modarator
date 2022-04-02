@@ -336,8 +336,11 @@ else if (message.content.toLowerCase() === '0252505504' && message.channel.id ==
   bot.on('guildMemberAdd', member => {
     console.log(member.user.tag);
   });
+  if (message.channel.id === '959902984790224966')
+    await message.delete(); // application bot message delete 
 
-  
+  if (message.channel.id === '859655331901866005')
+    await message.delete();
   if (message.content.toLowerCase() === '890-322-134' && message.channel.id === '859655331901866005')
   {
     message.channel.send(`${message.author} Please stand by <a:Loading:955907726825910284>
