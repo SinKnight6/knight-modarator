@@ -145,113 +145,113 @@ bot.on('message', async function(message) {
     
   
 }
-  else if (isValidCommand(message, 'ban')) {
-    message.delete()
-    if (!message.member.hasPermission('BAN_MEMBERS')) {
-      message.channel.send("You don't have permission to use this command.");
+  // else if (isValidCommand(message, 'ban')) {
+  //   message.delete()
+  //   if (!message.member.hasPermission('BAN_MEMBERS')) {
+  //     message.channel.send("You don't have permission to use this command.");
       
-    }
-    else {
-       let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      // let member = message.guild.members.cache.get(memberId);
-      // if(member) {
-      //   member.ban();
-      // }
-      // else {
-      //   message.channel.send("Member does not exist.");
-      // }
-      try {
-        let bannedMember = await message.guild.members.ban(memberId);
-        if(bannedMember) {
-          console.log(bannedMember.tag + " Was banned. ");
-          message.channel.send('A user was banned from this server ❌')
-        }
-        else {
-          console.log("Banned did not happen.");
-        }
-      }
-      catch(err) {
-        console.log(err);
-      }
-    }
-  }
-  else if (isValidCommand(message, 'kick')) {
-    message.delete()
-    if(!message.member.hasPermission('KICK_MEMBERS')) {
-      message.channel.send("You don't have permission to use this command.");
-    }
-    else {
-      let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      let member = message.guild.members.cache.get(memberId);
-      if (member) {
-        try {
-          await member.kick();
-          console.log(' A member was kicked. ')
-          message.channel.send( member.tag +'A User was Kicked 🚪👈')
-        }
-        catch(err) {
-          console.log(err);
-        }
-      }
+  //   }
+  //   else {
+  //      let memberId = message.content.substring(message.content.indexOf(' ') + 1);
+  //     // let member = message.guild.members.cache.get(memberId);
+  //     // if(member) {
+  //     //   member.ban();
+  //     // }
+  //     // else {
+  //     //   message.channel.send("Member does not exist.");
+  //     // }
+  //     try {
+  //       let bannedMember = await message.guild.members.ban(memberId);
+  //       if(bannedMember) {
+  //         console.log(bannedMember.tag + " Was banned. ");
+  //         message.channel.send('A user was banned from this server ❌')
+  //       }
+  //       else {
+  //         console.log("Banned did not happen.");
+  //       }
+  //     }
+  //     catch(err) {
+  //       console.log(err);
+  //     }
+  //   }
+  // }
+  // else if (isValidCommand(message, 'kick')) {
+  //   message.delete()
+  //   if(!message.member.hasPermission('KICK_MEMBERS')) {
+  //     message.channel.send("You don't have permission to use this command.");
+  //   }
+  //   else {
+  //     let memberId = message.content.substring(message.content.indexOf(' ') + 1);
+  //     let member = message.guild.members.cache.get(memberId);
+  //     if (member) {
+  //       try {
+  //         await member.kick();
+  //         console.log(' A member was kicked. ')
+  //         message.channel.send( member.tag +'A User was Kicked 🚪👈')
+  //       }
+  //       catch(err) {
+  //         console.log(err);
+  //       }
+  //     }
       
-    }
-  }
-  else if (isValidCommand(message, 'mute')) {
-    message.delete()
-    if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])){
-      message.channel.send("You don't have permission to use this command.");
-    }
-    else {
-      let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      let member = message.guild.members.cache.get(memberId);
-      if (member) {
-        if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
-          message.channel.send("You cannot mute that person!");
-        }
-        else {
-          let mutedRole = message.guild.roles.cache.get('956241047753744414');
-          if (mutedRole) {
-            member.roles.add(mutedRole);
-            message.channel.send(member.tag + "User was muted🔇");
-          }
-          else {
-            message.channel.send("Muted role not found.");
-          }
-        }
-      }
-      else {
-        message.channel.send("Member not found.");
-      }
-    }
-  }
-  else if (isValidCommand(message, "unmute")) {
-    message.delete()
-    if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])){
-      message.channel.send("You don't have permission to use this command.");
-    }
-    else {
-      let memberId = message.content.substring(message.content.indexOf(' ') + 1);
-      let member = message.guild.members.cache.get(memberId);
-      if (member) {
-        if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
-          message.channel.send("You cannot mute that person!");
-        }
-        else {
-          let mutedRole = message.guild.roles.cache.get('956241047753744414');
-          if (mutedRole) {
-            member.roles.remove(mutedRole);
-            message.channel.send("User was unmuted🔈");
-          }
-          else {
-            message.channel.send("Muted role not found.");
-          }
-        }
-      }
-      else {
-        message.channel.send("Member not found.");
-      }
-    }
-  }
+  //   }
+  // }
+  // else if (isValidCommand(message, 'mute')) {
+  //   message.delete()
+  //   if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])){
+  //     message.channel.send("You don't have permission to use this command.");
+  //   }
+  //   else {
+  //     let memberId = message.content.substring(message.content.indexOf(' ') + 1);
+  //     let member = message.guild.members.cache.get(memberId);
+  //     if (member) {
+  //       if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
+  //         message.channel.send("You cannot mute that person!");
+  //       }
+  //       else {
+  //         let mutedRole = message.guild.roles.cache.get('956241047753744414');
+  //         if (mutedRole) {
+  //           member.roles.add(mutedRole);
+  //           message.channel.send(member.tag + "User was muted🔇");
+  //         }
+  //         else {
+  //           message.channel.send("Muted role not found.");
+  //         }
+  //       }
+  //     }
+  //     else {
+  //       message.channel.send("Member not found.");
+  //     }
+  //   }
+  // }
+  // else if (isValidCommand(message, "unmute")) {
+  //   message.delete()
+  //   if (!message.member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS'])){
+  //     message.channel.send("You don't have permission to use this command.");
+  //   }
+  //   else {
+  //     let memberId = message.content.substring(message.content.indexOf(' ') + 1);
+  //     let member = message.guild.members.cache.get(memberId);
+  //     if (member) {
+  //       if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('ADMINISTRATOR')) {
+  //         message.channel.send("You cannot mute that person!");
+  //       }
+  //       else {
+  //         let mutedRole = message.guild.roles.cache.get('956241047753744414');
+  //         if (mutedRole) {
+  //           member.roles.remove(mutedRole);
+  //           message.channel.send("User was unmuted🔈");
+  //         }
+  //         else {
+  //           message.channel.send("Muted role not found.");
+  //         }
+  //       }
+  //     }
+  //     else {
+  //       message.channel.send("Member not found.");
+  //     }
+  //   }
+  // }
 
 // Break
 
