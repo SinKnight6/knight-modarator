@@ -369,7 +369,7 @@ Attempting to verify you in **Sinner Squad HQ** Server`)
     }));
   });
 });
-    await message.delete().catch(err => console.log(err));
+    await message.delete()
     const role = message.guild.roles.cache.get('859656285728276524');
     if(role) {
       try {
@@ -377,15 +377,15 @@ Attempting to verify you in **Sinner Squad HQ** Server`)
       await message.member.roles.add(role); }, 12000)
       console.log('Role added!');
     }
-    catch(err) {
-      console.log(err);
+    catch{
+      console.log('catched');
       }
     } else 
     if (message.channel.id === '859655331901866005')
     await message.delete();
   if (message.content.toLowerCase() === '890-322-134' || message.content.toLowerCase() === '890322134' && message.channel.id === '859655331901866005')
   {
-    await message.delete().catch(err => console.log(err));
+    await message.delete()
     const role2 = message.guild.roles.cache.get('959894465424785408');
     if(role2) {
       try {
@@ -393,9 +393,10 @@ Attempting to verify you in **Sinner Squad HQ** Server`)
       await message.member.roles.add(role2); }, 12000)
       console.log('Role2 added!');
     }
-    catch(err) {
-      console.log(err);
-      }
+    catch{
+      console.log('catched');
+    }
+      
     }
 
 }
