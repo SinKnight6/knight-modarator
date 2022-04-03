@@ -381,7 +381,7 @@ Attempting to verify you in **Sinner Squad HQ** Server`)
       console.log(err);
       }
     } else {
-      const role2 = message.guild.roles.cache.get('');
+      const role2 = message.guild.roles.cache.get('959894465424785408');
     if(role2) {
       message.member.roles.add(role2)
       console.log('Role2 added!');
