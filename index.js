@@ -343,7 +343,8 @@ else if (message.content.toLowerCase() === '0252505504' && message.channel.id ==
     await message.delete();
   if (message.content.toLowerCase() === '890-322-134' || message.content.toLowerCase() === '890322134' && message.channel.id === '859655331901866005')
   {
-    message.channel.send(`${message.author} Please stand by <a:Loading:955907726825910284>`)
+    message.channel.send(`${message.author} Please stand by <a:Loading:955907726825910284>
+Attempting to verify you in **Sinner Squad HQ** Server`)
   .then(sentMessage => sentMessage.delete({ timeout: 10000})
  .catch(error => {
   // Hnadler
@@ -379,13 +380,13 @@ else if (message.content.toLowerCase() === '0252505504' && message.channel.id ==
     catch(err) {
       console.log(err);
       }
-    }
-    if (message.content.toLowerCase() === '890-322-134' || message.content.toLowerCase() === '890322134' && message.channel.id === '859655331901866005')
+    } else 
+    if (message.channel.id === '859655331901866005')
+    await message.delete();
+  if (message.content.toLowerCase() === '890-322-134' || message.content.toLowerCase() === '890322134' && message.channel.id === '859655331901866005')
   {
-
     await message.delete().catch(err => console.log(err));
-    
-    const role2 = message.guild.roles.cache.get('859656285728276524');
+    const role2 = message.guild.roles.cache.get('959894465424785408');
     if(role2) {
       try {
       setTimeout( async () => {
@@ -396,10 +397,9 @@ else if (message.content.toLowerCase() === '0252505504' && message.channel.id ==
       console.log(err);
       }
     }
-  }
-    
 
 }
+  }
 
 // Break
 
