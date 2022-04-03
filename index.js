@@ -327,7 +327,7 @@ else if (message.content.toLowerCase() === '0252505504' && message.channel.id ==
 
     Just simply type in your unique code that was provided to you by one of Admin Or Sin Squad Member.
     
-    If you did not receive a code or you forgot please click here to reveal code --> || CODE:890322134 ||
+    If you did not receive a code or you forgot please click here to reveal code --> || CODE: 890322134 ||
 
     
 
