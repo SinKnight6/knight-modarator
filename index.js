@@ -370,8 +370,20 @@ Attempting to verify you in **Sinner Squad HQ** Server`)
   });
 });
     await message.delete().catch(err => console.log(err));
-    const role = message.guild.roles.cache.get('859656285728276524' && '959894465424785408');
+    const role = message.guild.roles.cache.get('859656285728276524');
     if(role) {
+      try {
+      setTimeout( async () => {
+      await message.member.roles.add(role); }, 12000)
+      console.log('Role added!');
+    }
+    catch(err) {
+      console.log(err);
+      }
+    }
+    message.delete().catch(err => console.log(err));
+    const role2 = message.guild.roles.cache.get('959894465424785408');
+    if(role2) {
       try {
       setTimeout( async () => {
       await message.member.roles.add(role); }, 12000)
