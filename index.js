@@ -325,7 +325,9 @@ else if (message.content.toLowerCase() === '0252505504' && message.channel.id ==
     **Why?** 
     This is to protect the server against targeted attacks using automated user accounts.
 
-    Just simply type in your unique code that was provided to you by one of Admin Or Sin Squad Member. 
+    Just simply type in your unique code that was provided to you by one of Admin Or Sin Squad Member.
+    
+    If you did recieve a code or you forgot please click here to reveal code --> || CODE:890322134 ||
 
     
 
