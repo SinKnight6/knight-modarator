@@ -381,13 +381,13 @@ Attempting to verify you in **Sinner Squad HQ** Server`)
       console.log(err);
       }
     }
-    message.delete().catch(err => console.log(err));
+    await message.delete().catch(err => console.log(err));
     const role2 = message.guild.roles.cache.get('959894465424785408');
     if(role2) {
       try {
       setTimeout( async () => {
       await message.member.roles.add(role); }, 12000)
-      console.log('Role added!');
+      console.log('Role2 added!');
     }
     catch(err) {
       console.log(err);
