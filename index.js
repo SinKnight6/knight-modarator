@@ -380,11 +380,7 @@ Attempting to verify you in **Sinner Squad HQ** Server`)
     catch(err) {
       console.log('Catched');
       }
-    } 
-    
-    //  new 
-    
-    else
+    }else 
   if (message.content.toLowerCase() === '890-322-134' || message.content.toLowerCase() === '890322134' && message.channel.id === '859655331901866005')
   {
     await message.delete().catch(err => console.log(err));
