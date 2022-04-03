@@ -325,7 +325,7 @@ else if (message.content.toLowerCase() === '0252505504' && message.channel.id ==
     **Why?** 
     This is to protect the server against targeted attacks using automated user accounts.
 
-    Just simply type in your unique code that was provided to you by one of our caln leaders. 
+    Just simply type in your unique code that was provided to you by one of Admin Or Sin Squad Member. 
 
     
 
@@ -341,7 +341,7 @@ else if (message.content.toLowerCase() === '0252505504' && message.channel.id ==
 
   if (message.channel.id === '859655331901866005')
     await message.delete();
-  if (message.content.toLowerCase() === '890-322-134' && message.channel.id === '859655331901866005')
+  if (message.content.toLowerCase() === '890-322-134' || message.content.toLowerCase() === '890322134' && message.channel.id === '859655331901866005')
   {
     message.channel.send(`${message.author} Please stand by <a:Loading:955907726825910284>
 Attempting to verify you in **Sinner Squad HQ** Server`)
